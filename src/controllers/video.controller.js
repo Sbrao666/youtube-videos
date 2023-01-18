@@ -8,7 +8,7 @@ class VideoController {
 
             const videoServiceInstance = new VideoService()
             const videos = await videoServiceInstance.getVideo(query);
-            console.log(videos)
+            
             if (!(videos && videos?.length)) return res.status(400).send({ message: "No videos found with this query" })
 
             res.status(200).send(videos);

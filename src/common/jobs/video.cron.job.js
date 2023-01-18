@@ -3,7 +3,7 @@ const axios = require('axios');
 const moment = require('moment')
 const VideoService = require('../../services/video.service');
 
-const searchQueries = [
+const predefinedSearchQueries = [
     "cat videos",
     "dog videos",
     "funny videos",
@@ -15,27 +15,27 @@ const searchQueries = [
     "DIY tutorials"
 ];
 
-
-cron.schedule("*/1 * * * *", async function () {
-    const datePublished = '2023-01-01T00:00:00Z';
+//cron job for every 10 minutes
+cron.schedule("0 0/10 * 1/1 * * *", async function () {
+    const datePublished = moment().subtract(10, 'minutes').format();
     const GOOGLE_YOUTUBE_API__BASE_URL = process.env.GOOGLE_YOUTUBE_API__BASE_URL
     const GOOGLE_YOUTUBE_API__KEY = process.env.GOOGLE_YOUTUBE_API__KEY
 
     try {
         const videoRequest = []
-        for (let searchQuery of searchQueries) {
+        for (let searchQuery of predefinedSearchQueries) {
             const response = await axios.get(GOOGLE_YOUTUBE_API__BASE_URL, {
                 params: {
                     key: GOOGLE_YOUTUBE_API__KEY,
                     q: searchQuery,
                     part: 'snippet',
                     type: 'video',
-                    maxResults: 50
-                    // publishedAfter: datePublished
+                    maxResults: 50,
+
                 },
             });
             const videos = response.data.items
-
+            console.log(videos)
             if (!videos) continue
 
             for (let video of videos) {
