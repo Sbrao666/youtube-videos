@@ -31,7 +31,7 @@ cron.schedule("0 0/10 * 1/1 * * *", async function () {
                     part: 'snippet',
                     type: 'video',
                     maxResults: 50,
-
+                    publishedAfter: datePublished
                 },
             });
             const videos = response.data.items

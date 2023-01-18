@@ -1,6 +1,7 @@
 const prisma = require('../../prisma/database')
 class VideoService {
-    async getVideo(query) {
+    async getVideo(query, order) {
+        console.log(typeof query)
         try {
             return await prisma.video.findMany({
                 where: {
@@ -10,6 +11,11 @@ class VideoService {
                     {
                         description: { contains: query }
                     }]
+                },
+                skip: 20,
+                take: 20,
+                orderBy: {
+                    publishedAt: order
                 }
             })
         } catch (error) {
