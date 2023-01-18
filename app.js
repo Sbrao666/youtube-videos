@@ -1,3 +1,4 @@
+require('./src/common/jobs/video.cron.job')
 const express = require("express");
 
 const video = require('./src/routes/video.route')
