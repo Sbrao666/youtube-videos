@@ -5,7 +5,7 @@
 This is my submission for the assesment given by fampay hiring team.
 
 ### project setup
-1. Clone the project from   `https://github.com/Sbrao666/youtube-videos`
+1. Clone the project from   `https://github.com/Sbrao666/youtube-videos` and excute command `npm install`
 2. Open the code, go to migration and run query into your local mysql inorder to setup table.
 3. Create a env file with name `.env` on to the root folder of application and mention following envrioment variable. 
 
@@ -14,7 +14,7 @@ GOOGLE_YOUTUBE_API__KEY= <USE_YOUR_API_KEY>
 GOOGLE_YOUTUBE_API__BASE_URL='https://www.googleapis.com/youtube/v3/search'
 PORT =3000`
 
-4. Run The code using command `npm start`.
+4. Run the project using command `npm start`.
 
 ### API end points
 1. Curl for search API 
@@ -24,6 +24,8 @@ PORT =3000`
 Order is  optional query parameter. it responsible for sort based on publishedAt.
 
 
+### Cron job for geeting video details from youtube api
+Cron job run at interval of every 10 min and save the video published in last 10 mins.
 
 
 # Notes
