@@ -24,7 +24,7 @@ PORT =3000`
 Order is  optional query parameter. it responsible for sort based on publishedAt.
 
 
-### Cron job for geeting video details from youtube api
+### Cron job for fetching video details from youtube api
 Cron job run at interval of every 10 min and save the video published in last 10 mins.
 
 
